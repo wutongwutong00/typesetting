@@ -1,12 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>p l a y , t y p e , s e t</title>
     
+</head>
+
+<body>
+<div class="editingcontainer" id="editingcontainer">
+  <div class="header" id="header">
+    enter your text below
+  </div>
+  <p contenteditable="true" id="editText" spellcheck="false">
+    start editing me
+  </p>
+  <p class="pepper" id="pepper"></p>
+</div>
+
+<div class="rightcontainer" id="rightcontainer">
+
+    <span class="toolitem printbutton" id="printbutton">
+      <button onclick="window.print()" name="print" id="print">print</button>
+    </span>
+
+    <span class="toolitem previewbutton" id="previewbutton">
+      <button onclick="previewHide()"name="preview" id="preview">preview</button>
+    </span>
+
+  <div class="slidertoolcontainer" id="slidertoolcontainer">
+
+    <span class="toolitem">
+    <label for="font">font</label>
+    <br>
+    <button onclick="randomFont(event)" name="font" id="font">random</button>
+    </span>
+
+    <span class="toolitem">
+      <label for="letter">letter spacing</label>
+      <input id="letter" type="range" value="auto" min="-100" max="100">
+    </span>
+
+    <span class="toolitem">
+      <label for="word">word spacing</label>
+      <input id="word" type="range" min="-200" max="200">
+    </span>
+
+    <span class="toolitem">
+      <label for="leading">leading</label>
+      <input id="leading" type="range" min="-200" max="400">
+    </span>
+
+    <span class="toolitem">
+      <label for="size">font size</label>
+      <input id="size" type="range" value="16" min="4" max="200">
+    </span>
+
+    <span class="toolitem">
+      <label for="textOpacity">opacity</label>
+      <input id="textOpacity" type="range" value="100" min="0" max="100">
+    </span>
+
+    <span class="toolitem">
+      <label for="indentation">text indent</label>
+      <input id="indentation" type="range" value="0" min="-100" max="100">
+    </span>
+
+    <span class="toolitem">
+      <label for="flipText">text orientation</label>
+      <br>
+      <button onclick="horizontalText()" name="horizontalText" id="horizontalText">→</button>
+      <button onclick="verticalText()" name="verticalText" id="verticalText">↓</button>
+    </span>
+
+    <span class="toolitem">
+      <label for="columns">columns</label>
+      <input id="columns" type="range" value="1" min="1" max="10">
+    </span>
+
+    <span class="toolitem">
+      <label for="alignText">alignment</label>
+      <br>
+      <button onclick="alignCenter()" name="alignCenter" id="alignCenter">center</button>
+      <br>
+      <button onclick="alignLeft()" name="alignLeft" id="alignLeft">left</button>
+      <button onclick="alignRight()" name="alignRight" id="alignRight">right</button>
+      
+      <button onclick="alignJustify()" name="alignJustify" id="alignJustify">justify</button>
+    </span>
+
+    <span class="toolitem">
+      <label for="randomLayout">layout</label>
+      <br>
+      <button onclick="randomLayout()" name="randomLayout" id="randomLayout">random</button>
+      <button onclick="resetLayout()" name="resetLayout" id="resetLayout">reset</button>
+      <button onclick="plainLayout()" name="plainLayout" id="plainLayout">plain text</button>
+    </span>
+
+    <span class="toolitem">
+      <label for="movetext">pepper text</label>
+      <br>
+      <textarea id="movetext" name="movetext" placeholder="s  p  r  i  n  k  l  e"></textarea>
+      <button onclick="dropPepper()" name="dropPepper" id="dropPepper">drop</button>
+      <button onclick="cleanPepper()" name="cleanPepper" id="cleanPepper">clean</button>
+      <!-- value="s p r i n k l e" -->
+    </span>
+
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+<script src="script.js"></script> 
 </body>
 </html>
