@@ -60,6 +60,7 @@ body {
   opacity: 40%;
   overflow: scroll;
   transition:0.3s;
+  z-index: 44;
 }
 
 .rightcontainer:hover {
@@ -90,8 +91,10 @@ body {
   overflow: visible;
   width: 100%;
 }
+
 #editText {
   writing-mode: horizontal-tb;
+  /* animation-name: animation1; */
 }
 
 .slidertoolcontainer {
@@ -118,13 +121,51 @@ body {
   transition:0.2s;
 }
 
-.toolitem.printbutton,.previewbutton {
-  display: inline-flex;
+.toolitem.printbutton,.previewbutton,.resetbutton{
+  display: flex;
+  flex-direction: column;
   padding: 0.2em;
-  padding-left: 0.62em;
-  padding-right: 0.62em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  /* padding-left: 0.62em;
+  padding-right: 0.62em; */
   border-radius: 10px;
-  float: right;
+  /* width: 50%;
+  float: right; */
+}
+
+/* .cool {
+  background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,19,167,0.5) 4%, rgba(0,131,255,0.5) 8%, rgba(136,207,23,0.5) 17%, rgba(255,173,0,0.5) 26%, rgba(255,126,0,0.5) 43%, rgba(255,1,0,0.5) 60%, rgba(0,0,0,0.5) 100%);
+  transition: 0.5s; 
+  color: black;
+}
+.cool:hover {
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,19,167,1) 4%, rgba(0,131,255,1) 8%, rgba(136,207,23,1) 17%, rgba(255,173,0,1) 26%, rgba(255,126,0,1) 43%, rgba(255,1,0,1) 60%, rgba(0,0,0,1) 100%);
+  color: black;
+} */
+
+.cool {
+  background: black;
+  opacity: 85%;
+}
+
+.cool:hover {
+  background: linear-gradient(-45deg, #ff0100, #ffad00, #88cf17,#0083ff, #c50dff);
+  background-size: 100% 100%;
+	animation: gradient 10s ease infinite;
+  opacity: 100%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 button {
@@ -174,15 +215,177 @@ margin-top: 1em;
 width: 80%;
 font-size: 12px;
 font-family: gravur;
+text-align: center;
 }
 
 .pepper {
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   font-family: gravur;
-  top: 50%;
-  left: 50%;
+  /* text-align: center; */
+  /* font-size: 10px; */
+  letter-spacing: 12px;
+  font-size: 12px;
+  writing-mode: horizontal-tb;
+  width: 80px;
+  text-align: center;
+  top: 0;
+  left: 0;
 }
+
+.salt {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 100px;
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  height: 0px;
+}
+
+.colophon {
+  color: black;
+  display: none;
+  padding-bottom: 2em;
+  padding-top: 1em;
+  font-size: 14px;
+  font-family: gravur;
+  /* text-transform: uppercase; */
+  height: 100vh;
+  background-color: white;
+  margin-right: 2em;
+  text-indent: 0.6em;
+}
+
+.animate {
+  animation-name: expand;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+@keyframes expand {
+  0%   {
+    letter-spacing: 1px;
+    color: black;
+
+  }
+  50%  {
+    letter-spacing: 40px;
+    color: white;
+  }
+  100% {
+    letter-spacing: 1px;
+    color: black;
+  }
+}
+
+.highlight {
+  background-color: black;
+  color: white;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+
+/* .blurtext {
+  animation-name: blur;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+} */
+
+.blurtext > span {
+  /* background-color: green; */
+  animation-name: blur;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  /* animation-play-state: running; */
+  animation-play-state: paused;
+}
+
+.blurtext > span:hover {
+  animation-play-state: running;
+}
+
+@keyframes blur {
+  0%    {
+    filter:blur(0rem)
+  }
+  25%   {
+    filter: blur(0.5rem);
+
+  }
+  50%  {
+    filter: blur(0.6rem);
+  }
+  100% {
+    filter: blur(0em);
+  }
+}
+
+.wavytext  {
+  display: block;
+  animation: bounce 8s infinite;
+  transform-origin: top;
+  z-index: 1;
+}
+
+/* .wavytext > span {
+  animation-name: wavy;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+} */
+
+.wavytext > span  {
+  display: block;
+  animation: bounce 8s infinite;
+  transform-origin: top;
+  z-index: 1;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate3d(0, 0, 0.8em) rotateY(0deg) scaleY(1) scaleX(1);
+    /* animation-timing-function: ease-in; */
+  }
+  25% {
+    transform: translate3d(0, 0.2, 0.8em) rotateY(0deg) scaleY(1) scaleX(1);
+    /* animation-timing-function: ease-in; */
+  }
+  50% {
+    transform: translate3d(0, 0, 0) rotateY(180deg) scaleY(2) scaleX(2);
+  }
+  75% {
+    transform: translate3d(0, 0.2, 0) rotateY(180deg) scaleY(1) scaleX(1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0.8em) rotateY(0deg) scaleY(1) scaleX(1);
+    /* animation-timing-function: ease-out; */
+  }
+}
+
+/* 
+.wavytext > span:hover {
+  animation-play-state: paused;
+}
+
+@keyframes wavy {
+  0%    {
+    font-size: auto;
+    opacity: 100%;
+  }
+  50%   {
+    font-size: x-large;
+    opacity: 5%;
+
+  }
+  100% {
+    font-size: auto;
+    opacity: 100%;
+  }
+} */
 
 
 input[type=range] {

@@ -168,40 +168,162 @@ function previewHide(){
     let hideheader = document.getElementById("header");
     let hideright = document.getElementById("slidertoolcontainer");
     let hideprint = document.getElementById("printbutton");
+    let hidereset = document.getElementById("resetbutton");
+    let hidecolophon = document.getElementById("colophon");
 
     hideheader.classList.toggle("noshow");
     hideright.classList.toggle("noshow");
     hideprint.classList.toggle("noshow");
+    hidereset.classList.toggle("noshow");
+    hidecolophon.classList.toggle("noshow");
 };
 
-
+let pepperParent = document.getElementById("pepper");
 
 function dropPepper(){
+    
     const xposition = Math.floor(Math.random()*window.innerWidth);
     const yposition = Math.floor(Math.random()*window.innerHeight);
-    // let pepperinput = document.getElementById("movetext").value;=
-    // document.getElementById("pepper").innerText = pepperinput;
-    
 
     let pepperinput = document.getElementById("movetext").value;
-    document.getElementById("pepper").innerText = pepperinput;
+    // pepperParent.innerText = pepperinput;
+
     const p = document.createElement("p");
+
     p.innerText = pepperinput;
-
-    document.body.appendChild(p);
-
-    document.getElementById("pepper").style.visibility = "hidden";
-    p.style.position = "absolute";
-    p.style.letterSpacing = "8px"
+    p.className = "pepper";
     p.style.top = xposition + 'px';
     p.style.left = yposition + 'px';
-
-    // pepperinput.style.top = xposition;
-    // pepperinput.style.left = yposition;
-
-    console.log(xposition,yposition);
-    console.log(p);
-
-
+    // p.style.width = 'fit-content';
+    // p.style.writingMode = 'horizontal-tb'
+    pepperParent.appendChild(p);
+    // console.log(xposition,yposition);
+    // console.log(p);
 }
 
+function cleanPepper(){
+    const collection = pepperParent.children;
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].style.visibility = "hidden";
+      }
+    // console.log ("yay");
+}
+
+
+
+let saltParent = document.getElementById("salt");
+function dropSalt(){
+    
+    const xposition = Math.floor(Math.random()*window.innerWidth);
+    const yposition = Math.floor(Math.random()*window.innerHeight);
+    const s = document.createElement("span");
+    s.innerText = ".";
+    s.className = "salt";
+    s.idName = 'salt';
+
+    s.style.top = xposition + 'px';
+    s.style.left = yposition + 'px';
+    saltParent.appendChild(s);
+    console.log(s);
+}
+
+// var saltSizeSlider = document.getElementById('saltsize');
+// saltSizeSlider.addEventListener('input', function saltSizeFunction() {
+//     var saltSize = saltSizeSlider.value;
+//     const ss = document.getElementsByClassName("salt");
+//     ss.idName = 'salt';
+//     // document.getElementsByClassName("salt").idName = 'salt';
+//     document.getElementById("salt").style.fontSize = saltSize + "px";
+//     console.log(ss);
+// });
+
+function cleanSalt(){
+    const collection = saltParent.children;
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].style.visibility = "hidden";
+      }
+    // console.log ("yay");
+}
+
+
+function colophon() {
+    var x = document.getElementById("colophontext");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+
+  function animate1() {
+    document.getElementById("editText").classList.toggle("animate");
+    console.log("cool");
+  }
+
+  function highlight() {
+    document.getElementById("editText").classList.toggle("highlight");
+  }
+
+  function underline() {
+    document.getElementById("editText").classList.toggle("underline");
+  }
+
+  function cut() {
+
+    let message =  document.getElementById("editText").innerText;
+    const arr = message.split(' ');
+    let text = "";
+    for (let i = 0; i < arr.length; i++) {
+        text += "<p>" + arr[i] + "</p>"; 
+      }
+    console.log(text);
+
+    document.getElementById("editText").innerHTML = text;
+    // document.getElementById("editText").classList.toggle("play");
+  }
+
+  function stick() {
+
+    let message =  document.getElementById("editText").innerText;
+    const arr = message.split(' ');
+    let text = "";
+    for (let i = 0; i < arr.length; i++) {
+        text += "<span>" + arr[i] + "</span>"; 
+      }
+    console.log(text);
+    // document.getElementById("editText").classList.toggle("play");
+    document.getElementById("editText").innerHTML = text;
+  }
+
+  function blurtext() {
+    let message =  document.getElementById("editText").innerText;
+    const arr = message.split(' ');
+    let text = "";
+    for (let i = 0; i < arr.length; i++) {
+        text += "<span>" + arr[i] + "&nbsp;" + "</span>"; 
+      }
+    console.log(text);
+
+    document.getElementById("editText").innerHTML = text;
+    document.getElementById("editText").classList.toggle("blurtext");
+    console.log("blurred");
+  }
+
+  function wavytext() {
+    let message =  document.getElementById("editText").innerText;
+    const arr = message.split(' ');
+    let text = "";
+    for (let i = 0; i < arr.length; i++) {
+        text += "<span>" + arr[i] + "</span>"; 
+      }
+
+    document.getElementById("editText").innerHTML = text;
+    document.getElementById("editText").classList.toggle("wavytext");
+    console.log(text);
+  }
+
+//   function blurIt() {
+//     console.log("yesssrr");
+//     document.getElementById("editText").classList.toggle("blur");
+//     // document.getElementById("editText").classList.toggle("play");
+//   }
