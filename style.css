@@ -12,27 +12,27 @@ body {
 
 @font-face {
  font-family: gravur;
- src: url("/font/GravurTrialTT-CondRegular.ttf");
+ src: url("./font/GravurTrialTT-CondRegular.ttf");
 }
 @font-face {
   font-family: signifier;
-  src: url("/font/TestSignifier-Extralight.otf");
+  src: url("./font/TestSignifier-Extralight.otf");
 }
 @font-face {
   font-family: mondwest;
-  src: url("/font/PPMondwest-Regular.otf");
+  src: url("./font/PPMondwest-Regular.otf");
 }
 @font-face {
   font-family: arialnarrow;
-  src: url("/font/Arial\ Narrow.ttf");
+  src: url("./font/Arial\ Narrow.ttf");
 }
 @font-face {
   font-family: akzidenz;
-  src: url("/font/Akzidenz-grotesk-roman.ttf");
+  src: url("./font/Akzidenz-grotesk-roman.ttf");
 }
 @font-face {
   font-family: superstudio;
-  src : url("/font/SuperstudioTrialTT-Regular.ttf");
+  src : url("./font/SuperstudioTrialTT-Regular.ttf");
 }
 
 .editingcontainer {
